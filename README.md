@@ -130,8 +130,8 @@ Managing personal finances manually is often inefficient and error-prone. This p
 
 ## 👨‍💻 Author
 
-**Ankan Pandey**
-🔗 GitHub: https://github.com/Ankanpandey28
+**Jatin Hansa**
+🔗 GitHub: https://github.com/Jatin0-tech
 
 ---
 
