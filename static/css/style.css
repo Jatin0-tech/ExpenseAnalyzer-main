@@ -1,0 +1,67 @@
+/* 🌟 General Styling */
+body {
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🧾 Cards */
+.card {
+    border-radius: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* 💰 Dashboard Cards */
+.budget-card-income {
+    background: #e6fffa;
+}
+
+.budget-card-expense {
+    background: #ffe6e6;
+}
+
+.budget-card-balance {
+    background: #e6f0ff;
+}
+
+/* 🔘 Buttons */
+.btn {
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* 📊 Tables */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f5ff;
+}
+
+/* 🔔 Alerts */
+.alert {
+    border-radius: 10px;
+}
+
+/* 🧠 Navbar */
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* 📱 Mobile Responsive Fix */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 15px;
+    }
+}

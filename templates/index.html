@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2 class="mb-4">Welcome to Your Budget Dashboard</h2>
+
+<div class="row mb-5">
+    <div class="col-md-4">
+        <div class="card budget-card-income shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-success">Total Income</h5>
+                <p class="card-text fs-3">₹ {{ "{:,.2f}".format(total_income) }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card budget-card-expense shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-danger">Total Expenses</h5>
+                <p class="card-text fs-3">₹ {{ "{:,.2f}".format(total_expense) }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card budget-card-balance shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Current Balance</h5>
+                <p class="card-text fs-3">₹ {{ "{:,.2f}".format(balance) }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="mb-3">Recent Transactions</h3>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th class="text-end">Amount</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trans in transactions %}
+            <tr class="{% if trans.type == 'Expense' %}text-danger{% else %}text-success{% endif %}">
+                <td>{{ trans.date }}</td>
+                <td>{{ trans.description or 'N/A' }}</td>
+                <td>{{ trans.category }}</td>
+                <td class="text-end">₹ {{ "{:,.2f}".format(trans.amount) }}</td>
+                <td><span class="badge bg-{% if trans.type == 'Expense' %}danger{% else %}success{% endif %}">{{ trans.type }}</span></td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="text-center text-muted">No transactions found. Add your first entry!</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('add_transaction') }}" class="btn btn-lg btn-success shadow-lg">➕ Log New Entry</a>
+</div>
+{% endblock %}
